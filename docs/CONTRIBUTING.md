@@ -87,7 +87,7 @@ drivers/can/
 ```c
 void can_driver_init(void);
 void can_driver_send(uint32_t msg_id, const uint8_t *data, uint8_t len);
-bool can_driver_receive(uint32_t *msg_id, uint8_t *data, uint8_t *len);
+uint16_t can_driver_receive(uint32_t *msg_id, uint8_t *data, uint8_t *len);
 ```
 
 **In the application (main.c or led_ex1_blinky.c)**:

@@ -42,7 +42,7 @@ void can_driver_send(uint32_t msg_id, const uint8_t *data, uint8_t len);
  * @param msg_id  [out] Received message ID.
  * @param data    [out] Buffer for payload bytes (must be >= 8 bytes).
  * @param len     [out] Number of received payload bytes.
- * @return 1 if a message was received, 0 otherwise.
+ * @return 1 if a message was received, 0 if no message available.
  */
 uint16_t can_driver_receive(uint32_t *msg_id, uint8_t *data, uint8_t *len);
 
