@@ -1,0 +1,48 @@
+# ==============================================================================
+# TI C2000 / Code Composer Studio .gitignore
+# ==============================================================================
+
+# --- CCS Build Output Directories ---
+**/CPU1_RAM/
+**/CPU1_FLASH/
+**/Debug/
+**/Release/
+
+# --- CCS / Eclipse IDE Files ---
+# Keep: .ccsproject, .cproject, .project, .settings (needed for CCS build)
+# Keep: .clangd (config file, not cache)
+# Keep: targetConfigs/ (needed for debug probes)
+
+# --- Theia IDE ---
+# Keep: .theia/launch.json (needed for debug configuration)
+
+# --- Compiled Objects & Build Artifacts ---
+*.obj
+*.out
+*.map
+*.bin
+*.hex
+*.lst
+*.d
+*.opt
+*_linkInfo.xml
+
+# --- Clangd Cache ---
+.clangd/.cache/
+**/.clangd/.cache/
+
+# --- Temporary / Backup Files ---
+*.bak
+*.tmp
+*~
+*.swp
+*.swo
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor Files ---
+.vscode/
+*.code-workspace
