@@ -1,0 +1,15 @@
+# Build output directories
+led_ex1_blinky/CPU1_RAM/
+led_ex1_blinky/CPU1_FLASH/
+
+# IDE settings
+.theia/
+led_ex1_blinky/.settings/
+led_ex1_blinky/.clangd/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
