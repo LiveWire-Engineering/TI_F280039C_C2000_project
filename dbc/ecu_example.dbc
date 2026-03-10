@@ -1,0 +1,46 @@
+VERSION ""
+
+NS_ :
+
+BS_:
+
+BU_: ECU Tester
+
+BO_ 256 EngineData: 8 ECU
+ SG_ EngineSpeed : 0|16@1+ (1,0) [0|8000] "rpm" Tester
+ SG_ EngineTemp : 16|8@1+ (1,-40) [-40|215] "degC" Tester
+ SG_ ThrottlePos : 24|8@1+ (0.392157,0) [0|100] "%" Tester
+ SG_ EngineStatus : 32|2@1+ (1,0) [0|3] "" Tester
+
+BO_ 512 TransmissionData: 8 ECU
+ SG_ GearPosition : 0|4@1+ (1,0) [0|7] "" Tester
+ SG_ TransTemp : 8|8@1+ (1,-40) [-40|215] "degC" Tester
+ SG_ TransStatus : 16|2@1+ (1,0) [0|3] "" Tester
+
+BO_ 768 VehicleStatus: 8 ECU
+ SG_ VehicleSpeed : 0|16@1+ (0.01,0) [0|655.35] "km/h" Tester
+ SG_ BrakePressure : 16|8@1+ (1,0) [0|255] "bar" Tester
+ SG_ SteeringAngle : 24|16@1+ (0.1,-3276.8) [-3276.8|3276.7] "deg" Tester
+
+BO_ 1024 TesterCommand: 8 Tester
+ SG_ CommandType : 0|8@1+ (1,0) [0|255] "" ECU
+ SG_ CommandData : 8|32@1+ (1,0) [0|4294967295] "" ECU
+ SG_ CommandCounter : 40|8@1+ (1,0) [0|255] "" ECU
+
+CM_ BO_ 256 "Engine data broadcast by ECU at 100ms";
+CM_ BO_ 512 "Transmission data broadcast by ECU at 200ms";
+CM_ BO_ 768 "Vehicle status broadcast by ECU at 50ms";
+CM_ BO_ 1024 "Command message sent from Tester to ECU";
+CM_ SG_ 256 EngineSpeed "Engine speed in RPM";
+CM_ SG_ 256 EngineTemp "Engine coolant temperature";
+CM_ SG_ 256 ThrottlePos "Throttle pedal position percentage";
+CM_ SG_ 256 EngineStatus "0=Off, 1=Cranking, 2=Running, 3=Error";
+CM_ SG_ 768 VehicleSpeed "Vehicle speed from wheel sensors";
+CM_ SG_ 1024 CommandType "Command type identifier";
+
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 10000;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 256 100;
+BA_ "GenMsgCycleTime" BO_ 512 200;
+BA_ "GenMsgCycleTime" BO_ 768 50;
+BA_ "GenMsgCycleTime" BO_ 1024 0;
